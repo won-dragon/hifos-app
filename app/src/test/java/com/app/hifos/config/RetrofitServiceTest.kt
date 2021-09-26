@@ -8,7 +8,7 @@ import org.junit.Test
 
 class RetrofitServiceTest {
     @Test
-    fun 해야할일_몽땅가져오() = runBlocking {
+    fun 해야할일_몽땅가져오기() = runBlocking {
         val list : List<UserTodoDTO>  =  RetrofitService.API.userTodoSearchAll();
         println(list)
     }
