@@ -1,4 +1,4 @@
-package kf.hifos.edu.dto
+package com.app.hifos.dto
 
 data class UserTodoDTO(
     val id: Long?,

@@ -1,23 +1,30 @@
-package kf.hifos.edu.config
+package com.app.hifos.config
 
+import com.app.hifos.dto.UserTodoDTO
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import kf.hifos.edu.dto.UserTodoDTO
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
 interface RetrofitService {
 
     @GET("user-todo")
-    suspend fun userTodoAll(): List<UserTodoDTO>
+    suspend fun userTodoSearchAll(): List<UserTodoDTO>
+
+    @GET("user-todo/user/{userId}")
+    suspend fun userTodoSearch(@Path("userId") userId : String): List<UserTodoDTO>
+
+    @PUT("user-todo/todo/{id}")
+    suspend fun userTodoMod(@Path("id") id : Long, @Body userTodoDTO: UserTodoDTO) : UserTodoDTO
 
     @POST("user-todo")
-    suspend fun userTodo(@Body userTodoDTO: UserTodoDTO) : UserTodoDTO
+    suspend fun userTodoReg(@Body userTodoDTO: UserTodoDTO) : UserTodoDTO
+
+    @DELETE("user-todo/todo/{id}")
+    suspend fun userTodoRemove(@Path("id") id : Long)
 
     companion object { // static 처럼 공유객체로 사용가능함. 모든 인스턴스가 공유하는 객체로서 동작함.
         var API : RetrofitService

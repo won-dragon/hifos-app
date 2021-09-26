@@ -7,7 +7,7 @@ import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.app.hifos.databinding.ActivityAddContentBinding
-import kf.hifos.edu.todo.TodoList
+import com.app.hifos.todo.TodoList
 import java.text.SimpleDateFormat
 import java.util.*
 

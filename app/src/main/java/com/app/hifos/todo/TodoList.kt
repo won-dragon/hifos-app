@@ -1,4 +1,4 @@
-package kf.hifos.edu.todo
+package com.app.hifos.todo
 
 class TodoList(
     val userId: String,
